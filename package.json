@@ -1,0 +1,27 @@
+{
+  "name": "vue-sample",
+  "version": "1.0.0",
+  "description": "example vue app",
+  "main": "main.js",
+  "dependencies": {
+    "css-loader": "^0.28.5",
+    "style-loader": "^0.18.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --colors",
+    "dev": "webpack --progress --colors --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/G-gekko/vue-sample.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/G-gekko/vue-sample/issues"
+  },
+  "homepage": "https://github.com/G-gekko/vue-sample#readme"
+}
