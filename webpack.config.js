@@ -1,12 +1,33 @@
 module.exports = {
-    entry: "./main.js",
-    output: {
-        path: __dirname,
-        filename: "build.js"
-    },
-    module: {
-        loaders: [
-            { test: /\.css$/, loader: "style-loader!css-loader" }
-        ]
-    }
-};
+  entry: './src/main.js',                                 // Главный фаил, который включает все остальные модули
+  output: {
+    filename: 'build.js'                                  // Итоговый фаил, в который происходит компиляция
+  },
+  resolve: {
+      alias: {
+        vue: 'vue/dist/vue.js'
+      }
+  },
+  module: {
+    loaders: [ // Специальные правила компиляции
+        {
+            test: /\.css$/,                                 // Если это фаил .css, то webpack запускает его
+            loader: "style-loader!css-loader",              // спомощью style-loader и css-loader
+            exclude: /node_modules/                         // Не преобразуем папку node_modules (её не нужно компилировать)
+        },
+        {
+            test: /\.js$/,                                  // Если это фаил .js, то webpack запускает его
+            loader: 'babel-loader',                         // спомощью babel
+            exclude: /node_modules/                         // Не преобразуем папку node_modules (её не нужно компилировать)
+        },
+        {
+            test: /\.vue$/,                                 // Если это фаил .vue, то запускаем некоторые преобразования
+            loader: 'vue-loader',                           // преобразуем это используя vue
+            exclude: /(node_modules|bower_components)/      // Не преобразуем папку node_modules (её не нужно компилировать)
+        }
+      ]
+   },
+   devServer: {
+       port: 3000
+   }
+}
